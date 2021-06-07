@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Searchbar</ion-title>
+    <ion-title class="ion-text-center">Searchbar</ion-title>
   </ion-toolbar>
   <ion-toolbar>
     <ion-searchbar [value]="searchText" (ionChange)="search($event)"></ion-searchbar>
@@ -11,7 +11,7 @@
   <ion-list  *ngIf="datas.length; else emptyList">
     <ion-item *ngFor="let data of datas" (click)="goToProduct(data)">
       <ion-avatar slot="start">
-        <img [src]="data.image">
+        <ion-img [src]="data.image"></ion-img>
       </ion-avatar>
       <ion-label>
         <h2>{{data.name}}</h2>
