@@ -11,7 +11,8 @@
   <ion-list  *ngIf="datas.length; else emptyList">
     <ion-item *ngFor="let data of datas" (click)="goToProduct(data)">
       <ion-avatar slot="start">
-        <ion-img [src]="data.image"></ion-img>
+        <!-- <ion-img [src]="data.image"></ion-img> -->
+        <ion-img src="../../../assets/43900_sa.jpeg"></ion-img>
       </ion-avatar>
       <ion-label>
         <h2>{{data.name}}</h2>
