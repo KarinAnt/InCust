@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Searchbar</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar [value]="searchText" (ionChange)="search($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-list  *ngIf="datas.length; else emptyList">
+    <ion-item *ngFor="let data of datas" (click)="goToProduct(data)">
+      <ion-avatar slot="start">
+        <img [src]="data.image">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{data.name}}</h2>
+        <p>{{data.description}}</p>
+      </ion-label>
+    </ion-item> 
+  </ion-list>
+
+  <ng-template #emptyList>
+    <ion-row class="ion-padding ion-justify-content-center transparent-bg">
+      No data found
+    </ion-row>    
+  </ng-template>
+</ion-content>

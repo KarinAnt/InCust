@@ -1,0 +1,60 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>Product</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen >
+  <ion-card *ngIf="!!product">
+    <img [src]="product.image" style="width: 100%"/>
+    <ion-card-header>
+      <ion-card-title>{{ product.name }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{ product.description }}
+      <ion-grid>
+        <ion-row>
+          <ion-col class="no-padding">
+            <ion-button (click)="addAmount(100)">$100</ion-button>
+          </ion-col>
+          <ion-col class="no-padding">
+            <ion-button (click)="addAmount(10)">$10</ion-button>
+          </ion-col>
+          <ion-col class="no-padding">
+            <ion-button (click)="addQuantity(2.2)">2.2qty</ion-button>
+          </ion-col>
+          <ion-col class="no-padding">
+            <ion-button (click)="addQuantity(9)">9qty</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label position="stacked">Amount $</ion-label>
+              <ion-input [(ngModel)]="amount" (ngModelChange)="amountChange($event)"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-label position="stacked">Quantity</ion-label>
+              <ion-input [(ngModel)]="quantity" (ngModelChange)="quantityChange($event)"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="!product">
+    <ion-skeleton-text style="width: 90%; height: 100px; margin:'5px auto'"></ion-skeleton-text>
+    <ion-card-header>
+      <ion-card-title>
+        <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
