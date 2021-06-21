@@ -25,7 +25,7 @@ export class ListPage implements OnInit {
 
   ngOnInit() {
     this.storage.get('searchText').then((res)=>{
-      this.searchText = res
+      this.searchText = res;
     })
   }
 
@@ -42,7 +42,7 @@ export class ListPage implements OnInit {
 
   public goToProduct(product:IData): void {
     this._storage?.set('product', product).then(()=>{
-      this.router.navigate(['product']);
+      this.router.navigate(['product'])
     })
   }
 
